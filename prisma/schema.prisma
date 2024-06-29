@@ -12,3 +12,27 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id        String   @id @default(cuid())
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model map {
+  id        String   @id @default(cuid())
+  source    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model npc {
+  id          String   @id @default(cuid())
+  name        String?
+  mapId       String?
+  coordinateX Int?
+  coordinateY Int?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
